@@ -1,0 +1,36 @@
+.details {
+  .details-header {
+    align-items: initial;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+
+    .details-photo {
+      margin-right: 3.25rem;
+    }
+
+    .details-info {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+
+      .details-info-titles {
+        margin-bottom: 2rem;
+      }
+
+      .details-info-data {
+        .data-tags {
+          display: grid;
+          grid-template-columns: 4rem 1fr;
+        }
+      }
+    }
+  }
+
+  .details-trailer > div {
+    @media (max-width: 756px) {
+      height: 256px !important;
+      width: 256px !important;
+    }
+  }
+}
