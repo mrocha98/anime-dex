@@ -1,6 +1,6 @@
 import React from 'react';
-import NotFoundImage from '../../assets/not-found.png';
 import { useHistory } from 'react-router-dom';
+import NotFoundImage from '../../assets/not-found.png';
 import './styles.scss';
 
 function NotFound() {

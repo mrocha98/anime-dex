@@ -1,23 +1,44 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 import Player from 'react-player/lazy';
+import Swal from 'sweetalert2';
 import api from '../../services/api';
+import CardList from '../../components/card-list';
 import './styles.scss';
 
 function Details() {
   const { id } = useParams();
+  const history = useHistory();
   const [anime, setAnime] = useState([]);
+  const [recommendations, setRecommendations] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     async function loadData() {
-      const res = await api.get(`/anime/${id}`);
-      console.log(res.data);
-      setAnime(res.data);
-      setIsLoading(false);
+      try {
+        const resAnime = await api.get(`/anime/${id}`);
+        setAnime(resAnime.data);
+
+        const resRecommendations = await api.get(
+          `/anime/${id}/recommendations`
+        );
+        setRecommendations(resRecommendations.data.recommendations);
+
+        setIsLoading(false);
+      } catch (err) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Error',
+          text: "Couldn't fetch data from server...",
+          footer: err.message,
+        });
+        history.push('/');
+      }
     }
     loadData();
-  }, [id]);
+
+    return () => setIsLoading(true);
+  }, [history, id]);
 
   return (
     <section className="section">
@@ -68,6 +89,10 @@ function Details() {
           </section>
           <section className="details-trailer">
             <Player url={anime.trailer_url} controls />
+          </section>
+          <section className="box mt-6">
+            <h3 className="subtitle is-4">Recommendations</h3>
+            <CardList isInline list={recommendations} />
           </section>
         </article>
       )}

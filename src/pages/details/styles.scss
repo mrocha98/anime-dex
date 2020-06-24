@@ -34,3 +34,14 @@
     }
   }
 }
+
+.details .details-header {
+  @media (max-width: 768px) {
+    align-items: flex-start;
+    flex-direction: column;
+
+    .details-photo {
+      margin-bottom: 1.25rem;
+    }
+  }
+}

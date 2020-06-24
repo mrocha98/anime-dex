@@ -18,7 +18,7 @@ function Card({ id, title, image_url }) {
       <div className="card-content">
         <div className="media">
           <div className="media-content">
-            <p className="title is-4">{title}</p>
+            <p className="title is-4 is-size-6-mobile">{title}</p>
           </div>
         </div>
       </div>

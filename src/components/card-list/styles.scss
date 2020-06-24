@@ -15,3 +15,23 @@
     gap: 2.65rem;
   }
 }
+
+.card-list--inline {
+  align-items: initial;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  overflow-x: scroll;
+  transform: rotateX(180deg);
+
+  li {
+    margin: 0rem 1rem;
+    min-width: 256px;
+    padding-top: 1.4rem;
+    transform: rotateX(180deg);
+
+    @media (max-width: 700px) {
+      min-width: 128px;
+    }
+  }
+}

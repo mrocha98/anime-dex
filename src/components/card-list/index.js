@@ -2,9 +2,9 @@ import React from 'react';
 import Card from '../card';
 import './styles.scss';
 
-function CardList({ list }) {
+function CardList({ list, isInline = false }) {
   return (
-    <ul className="card-list">
+    <ul className={`card-list ${isInline ? 'card-list--inline' : ''}`}>
       {list.map((item) => (
         <li key={item.mal_id}>
           <Card
