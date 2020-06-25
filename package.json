@@ -1,7 +1,19 @@
 {
   "name": "anime-dex",
+  "description": "List information of animes with Jikan API",
+  "author": {
+    "name": "Matheus Rocha",
+    "email": "matheus_rocha98@outlook.com",
+    "url": "http://github.com/mrocha98"
+  },
+  "homepage": "https://anime-dex.vercel.app",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mrocha98/anime-dex.git"
+  },
+  "license": "MIT",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
